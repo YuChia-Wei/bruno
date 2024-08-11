@@ -76,8 +76,10 @@ export const normalizeFileName = (name) => {
     return name;
   }
 
-  const validChars = /[^\w\s-]/g;
-  const formattedName = name.replace(validChars, '-');
+  const invalidChars = /[\/\\:\*\?"<>\|\n\r\t]/g;
+  const formattedName = name.replace(invalidChars, '-');
+  // const validChars = /[^\w\s-]/g;
+  // const formattedName = name.replace(validChars, '-');
 
   return formattedName;
 };
